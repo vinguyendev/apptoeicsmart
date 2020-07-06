@@ -15,6 +15,8 @@ import vinv.techsaku.toeicsmart.models.Exam;
 import vinv.techsaku.toeicsmart.models.LoginResponse;
 import vinv.techsaku.toeicsmart.models.PartType;
 import vinv.techsaku.toeicsmart.models.SkillTest;
+import vinv.techsaku.toeicsmart.models.UserSkillTest;
+import vinv.techsaku.toeicsmart.models.UserTest;
 
 
 public interface APIServices {
@@ -34,5 +36,17 @@ public interface APIServices {
 
     @GET("api/skill-test/")
     Call<SkillTest> getSkillTest(@Header("Authorization") String token, @Query("exam_id") Integer examId, @Query("part_type_id") Integer partTypeId);
+
+    @POST("api/user-skill-tests")
+    @FormUrlEncoded
+    Call<UserSkillTest> postUserSkillTest(
+            @Header("Authorization") String token,
+            @Field("part_id") int part_id,
+            @Field("user_id") int user_id,
+            @Field("correct_sentences") int correct_sentences,
+            @Field("correct_ratio") String correct_ratio);
+
+    @GET("api/skill-test-by-user")
+    Call<ArrayList<UserTest>> getUserTest(@Header("Authorization") String token, @Query("user_id") Integer user_id);
 
 }

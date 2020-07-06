@@ -51,5 +51,10 @@
     <string name="translate">Tạm dịch: Tiến sỹ Braun chỉ viết thư giới thiệu cho các thực tập sinh đã thành thạo từng nhiệm vụ được giao cho một biên tập viên chỉnh sửa bản sao chưa có nhiều kinh nghiệm.</string>
     <string name="result_test">Kết quả: 10/30</string>
     <string name="home">Về trang chủ</string>
+    <string name="name_skill">Incomplete Sentences</string>
+    <string name="title_skill">Part 5 - TEST 1 - ETS 2018</string>
+    <string name="date_test">2020/06/28 20:31:21</string>
+    <string name="correct_sentences">Số câu đúng: 10</string>
+    <string name="correct_ratio">Điểm: 5/10</string>
 
 </resources>

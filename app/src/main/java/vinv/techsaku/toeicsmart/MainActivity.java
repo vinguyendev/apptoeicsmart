@@ -41,6 +41,7 @@ import vinv.techsaku.toeicsmart.ui.gallery.GalleryFragment;
 import vinv.techsaku.toeicsmart.ui.home.HomeFragment;
 import vinv.techsaku.toeicsmart.ui.login.LoginFragment;
 import vinv.techsaku.toeicsmart.ui.register.RegisterFragment;
+import vinv.techsaku.toeicsmart.ui.result.ResultFragment;
 import vinv.techsaku.toeicsmart.utils.AppConfig;
 import vinv.techsaku.toeicsmart.view.TestActivity;
 
@@ -103,6 +104,9 @@ public class MainActivity extends AppCompatActivity {
                 switch (id) {
                     case R.id.setting:
                         fragment = new GalleryFragment();
+                        break;
+                    case R.id.result:
+                        fragment = new ResultFragment();
                         break;
                     case R.id.logout:
                         break;

@@ -102,6 +102,7 @@ public class LoginFragment extends Fragment {
 
                 @Override
                 public void onFailure(Call<LoginResponse> call, Throwable t) {
+                    System.out.println(t.toString());
                     Toast.makeText(view.getContext(),R.string.error_login, Toast.LENGTH_SHORT).show();
                 }
             });

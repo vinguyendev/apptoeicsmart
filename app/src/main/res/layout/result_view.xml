@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="15dp"
+    android:gravity="center"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView
+        android:id="@+id/name_skill"
+        style="@style/textResult"
+        android:text="@string/name_skill"
+        />
+    <TextView
+        android:id="@+id/title_skill"
+        style="@style/textResult"
+        android:text="@string/title_skill"/>
+
+    <TextView
+        android:id="@+id/date_test"
+        style="@style/textResult"
+        android:text="@string/date_test"/>
+    <TextView
+        android:id="@+id/correct_sentences"
+        style="@style/textResult"
+        android:text="@string/correct_sentences"/>
+    <TextView
+        android:id="@+id/correct_ratio"
+        style="@style/textResult"
+        android:text="@string/correct_ratio"/>
+
+</LinearLayout>

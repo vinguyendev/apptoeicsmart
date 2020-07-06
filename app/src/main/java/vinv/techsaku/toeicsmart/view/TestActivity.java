@@ -2,7 +2,9 @@ package vinv.techsaku.toeicsmart.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -26,6 +28,7 @@ import vinv.techsaku.toeicsmart.adapters.QuestionListViewAdapter;
 import vinv.techsaku.toeicsmart.models.Answer;
 import vinv.techsaku.toeicsmart.models.Question;
 import vinv.techsaku.toeicsmart.models.SkillTest;
+import vinv.techsaku.toeicsmart.models.UserSkillTest;
 import vinv.techsaku.toeicsmart.networks.DataServices;
 import vinv.techsaku.toeicsmart.utils.AppConfig;
 
@@ -41,6 +44,8 @@ public class TestActivity extends AppCompatActivity {
     TextView content_question,key, explain, vocabularies, translate, resultTest;
     RadioButton keyA, keyB, keyC, keyD;
     Button btnBack, btnResult, btnNext, resultHome;
+    int user_id;
+    int part_id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +55,11 @@ public class TestActivity extends AppCompatActivity {
         progressBar = findViewById(R.id.progressBar);
         viewQuestion = findViewById(R.id.viewQuestion);
         fetchDataQuestions();
+
+        SharedPreferences sharedPreferences = this.getSharedPreferences("profile", Context.MODE_PRIVATE);
+        String idUser = sharedPreferences.getString("id","1");
+        user_id = Integer.parseInt(idUser);
+
 
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,8 +73,6 @@ public class TestActivity extends AppCompatActivity {
                 }
                 else {
                     submitTest();
-                    viewContentQuestion.setVisibility(View.GONE);
-                    viewResultTest.setVisibility(View.VISIBLE);
                 }
             }
         });
@@ -173,6 +181,7 @@ public class TestActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<SkillTest> call, Response<SkillTest> response) {
                 SkillTest skillTest = response.body();
+                part_id = skillTest.getId();
                 questions = skillTest.getQuestions();
                 progressBar.setVisibility(View.GONE);
                 viewQuestion.setVisibility(View.VISIBLE);
@@ -202,15 +211,31 @@ public class TestActivity extends AppCompatActivity {
 
     void submitTest() {
         int numberCorrect = 0;
-        int totalQuestion = questions.size();
+        final int totalQuestion = questions.size();
         for (Question question : questions) {
             if (question.getAnswer()!= null && question.getAnswer().equals(question.getKey())) {
                 numberCorrect++;
             }
         }
 
-        System.out.println(numberCorrect);
-        resultTest.setText(String.format("Kết quả: %s/%s", numberCorrect+"", totalQuestion+ ""));
+        String correct_ratio = numberCorrect + "/" + totalQuestion;
+
+        final int finalNumberCorrect = numberCorrect;
+        DataServices.getAPIService().postUserSkillTest("Bearer " + AppConfig.getToken(TestActivity.this),
+                user_id, part_id, numberCorrect,correct_ratio ).enqueue(new Callback<UserSkillTest>() {
+            @Override
+            public void onResponse(Call<UserSkillTest> call, Response<UserSkillTest> response) {
+                System.out.println(finalNumberCorrect);
+                resultTest.setText(String.format("Kết quả: %s/%s", finalNumberCorrect +"", totalQuestion+ ""));
+                viewContentQuestion.setVisibility(View.GONE);
+                viewResultTest.setVisibility(View.VISIBLE);
+            }
+
+            @Override
+            public void onFailure(Call<UserSkillTest> call, Throwable t) {
+
+            }
+        });
 
     }
 
