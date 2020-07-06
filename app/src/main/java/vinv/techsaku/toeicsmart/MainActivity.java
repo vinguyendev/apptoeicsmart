@@ -40,9 +40,11 @@ import vinv.techsaku.toeicsmart.networks.DataServices;
 import vinv.techsaku.toeicsmart.ui.gallery.GalleryFragment;
 import vinv.techsaku.toeicsmart.ui.home.HomeFragment;
 import vinv.techsaku.toeicsmart.ui.login.LoginFragment;
+import vinv.techsaku.toeicsmart.ui.profile.ProfileFragment;
 import vinv.techsaku.toeicsmart.ui.register.RegisterFragment;
 import vinv.techsaku.toeicsmart.ui.result.ResultFragment;
 import vinv.techsaku.toeicsmart.utils.AppConfig;
+import vinv.techsaku.toeicsmart.view.AuthActivity;
 import vinv.techsaku.toeicsmart.view.TestActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -56,7 +58,6 @@ public class MainActivity extends AppCompatActivity {
     private ListView listViewExam;
     ProgressBar progressBar;
     ExamListViewAdapter examListViewAdapter;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
         String txtName = sharedPreferences.getString("name","Vi Nguyen");
         String txtEmail = sharedPreferences.getString("email","vinguyen@gmail.com");
 
-        emailUser.setText(txtName);
+        nameUser.setText(txtName);
         emailUser.setText(txtEmail);
 
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
@@ -102,13 +103,14 @@ public class MainActivity extends AppCompatActivity {
                 viewHome.setVisibility(View.GONE);
 
                 switch (id) {
-                    case R.id.setting:
-                        fragment = new GalleryFragment();
-                        break;
                     case R.id.result:
                         fragment = new ResultFragment();
                         break;
+                    case R.id.profile:
+                        fragment = new ProfileFragment();
+                        break;
                     case R.id.logout:
+                        logout();
                         break;
                     default:
                         frameLayout.setVisibility(View.GONE);
@@ -166,5 +168,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    void logout() {
+        Intent intent = new Intent();
+        intent.setClass(context, AuthActivity.class);
+        startActivity(intent);
     }
 }

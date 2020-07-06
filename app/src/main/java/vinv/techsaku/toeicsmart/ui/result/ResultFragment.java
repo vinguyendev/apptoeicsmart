@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 
 import androidx.fragment.app.Fragment;
 
@@ -30,6 +31,7 @@ public class ResultFragment extends Fragment {
     ListView listResult;
     int user_id = 1;
     ResultListViewAdapter resultListViewAdapter;
+    ProgressBar progressBar;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -37,6 +39,7 @@ public class ResultFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_result, container, false);
 
         listResult = view.findViewById(R.id.listResult);
+        progressBar = view.findViewById(R.id.progressBar);
 
         SharedPreferences sharedPreferences = view.getContext().getSharedPreferences("profile", Context.MODE_PRIVATE);
         String idUser = sharedPreferences.getString("id","1");
@@ -50,6 +53,7 @@ public class ResultFragment extends Fragment {
                 ArrayList<UserTest> userTests = response.body();
                 resultListViewAdapter = new ResultListViewAdapter(userTests);
                 listResult.setAdapter(resultListViewAdapter);
+                progressBar.setVisibility(View.GONE);
             }
 
             @Override

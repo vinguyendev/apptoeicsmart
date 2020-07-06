@@ -9,12 +9,16 @@ import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.POST;
+import retrofit2.http.Part;
+import retrofit2.http.Path;
 import retrofit2.http.Query;
 import vinv.techsaku.toeicsmart.models.Book;
 import vinv.techsaku.toeicsmart.models.Exam;
 import vinv.techsaku.toeicsmart.models.LoginResponse;
 import vinv.techsaku.toeicsmart.models.PartType;
+import vinv.techsaku.toeicsmart.models.Profile;
 import vinv.techsaku.toeicsmart.models.SkillTest;
+import vinv.techsaku.toeicsmart.models.User;
 import vinv.techsaku.toeicsmart.models.UserSkillTest;
 import vinv.techsaku.toeicsmart.models.UserTest;
 
@@ -48,5 +52,25 @@ public interface APIServices {
 
     @GET("api/skill-test-by-user")
     Call<ArrayList<UserTest>> getUserTest(@Header("Authorization") String token, @Query("user_id") Integer user_id);
+
+    @GET("api/profile")
+    Call<Profile> getProfile(@Header("Authorization") String token);
+
+    @POST("api/updateProfile/{user_id}")
+    @FormUrlEncoded
+    Call<User> postUpdateProfile(
+            @Path("user_id") int user_id,
+            @Header("Authorization") String token,
+            @Field("name") String name,
+            @Field("mobile") String mobile,
+            @Field("email") String email);
+
+    @POST("api/auth/register")
+    @FormUrlEncoded
+    Call<LoginResponse> register(
+            @Field("email") String email,
+            @Field("mobile") String mobile,
+            @Field("password") String password,
+            @Field("name") String name);
 
 }

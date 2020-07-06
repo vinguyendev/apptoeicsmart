@@ -72,4 +72,12 @@
         <item name="android:textSize">18dp</item>
     </style>
 
+    <style name="viewButton">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:background">@color/colorPrimary</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:layout_margin">10dp</item>
+    </style>
+
 </resources>

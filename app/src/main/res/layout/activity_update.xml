@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <TextView
+        android:layout_marginTop="40dp"
+        style="@style/viewContentQuestion"
+        android:text="@string/update_profile"
+        />
+
+    <LinearLayout
+        android:layout_width="300dp"
+        android:layout_marginTop="40dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            style="@style/viewRadioButton"
+            android:text="@string/fullname"/>
+        <EditText
+            android:id="@+id/name"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/fullname"
+            android:autofillHints="@string/fullname"
+            android:inputType="text" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            style="@style/viewRadioButton"
+            android:text="@string/mobile"/>
+        <EditText
+            android:id="@+id/mobile"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/mobile"
+            android:autofillHints="@string/mobile"
+            android:inputType="text"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnUpdate"
+        style="@style/viewButton"
+        android:text="@string/update"/>
+
+
+</LinearLayout>

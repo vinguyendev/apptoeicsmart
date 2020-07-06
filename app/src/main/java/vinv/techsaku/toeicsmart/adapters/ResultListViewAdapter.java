@@ -1,5 +1,6 @@
 package vinv.techsaku.toeicsmart.adapters;
 
+import android.annotation.SuppressLint;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -33,6 +34,7 @@ public class ResultListViewAdapter extends BaseAdapter {
         return listResult.get(i).getId();
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
 
@@ -48,8 +50,8 @@ public class ResultListViewAdapter extends BaseAdapter {
         ((TextView)viewResult.findViewById(R.id.name_skill)).setText(result.getNameSkill());
         ((TextView)viewResult.findViewById(R.id.title_skill)).setText(result.getTitleSkill());
         ((TextView)viewResult.findViewById(R.id.date_test)).setText(result.getDateTest());
-        ((TextView)viewResult.findViewById(R.id.correct_sentences)).setText(result.getCorrectSentences());
-        ((TextView)viewResult.findViewById(R.id.correct_ratio)).setText(result.getCorrectRatio());
+        ((TextView)viewResult.findViewById(R.id.correct_sentences)).setText(String.format("Số câu đúng: %s",result.getCorrectSentences()+""));
+        ((TextView)viewResult.findViewById(R.id.correct_ratio)).setText(String.format("Điểm: %s",result.getCorrectRatio()));
 
         return viewResult;
     }
