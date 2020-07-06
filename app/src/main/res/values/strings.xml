@@ -1,0 +1,55 @@
+<resources>
+    <string name="app_name">Toeic Smart</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="result">Kết quả học tập</string>
+    <string name="logout">Đăng xuất</string>
+    <string name="profile">Thông tin cá nhân</string>
+    <string name="close">Close</string>
+    <string name="open">Open</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="error_login">Vui lòng đăng nhập lại</string>
+    <string name="success_login">Đăng nhập thành công</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="swipe_left_for_register">Swipe Left for Register</string>
+    <string name="login">Login</string>
+    <string name="password">Password</string>
+    <string name="e_mail">Email</string>
+    <string name="tag">Welcome to Toeic Smart \nLet\'s join us</string>
+    <string name="swipe_right_for_login">Swipe Right for Login</string>
+    <string name="register">Register</string>
+    <string name="re_type_password">Re-type Password</string>
+    <string name="your_name">Full Name</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="search">Search</string>
+    <string name="setting">Cài đặt</string>
+    <string name="name_user">Vi Nguyen</string>
+    <string name="mail_user">vinguyen.dev@gmail.com</string>
+
+    <string name="content_example">101. Dr. Braun will write-------letters only for interns who master every task expected of a junior copy editor.</string>
+    <string name="key_a_example">(A) recommends</string>
+    <string name="key_b_example">(B) recommendation</string>
+    <string name="key_c_example">(C) recommended</string>
+    <string name="key_d_example">(D) recommending</string>
+    <string name="code_question">101. </string>
+    <string name="view_result">Xem kết quả</string>
+    <string name="back">Trước</string>
+    <string name="next">Sau</string>
+    <string name="explain">Giải thích: Chỗ trống vẫn có thể điền tính từ C nhưng trong trường hợp này nó không hợp nghĩa nên chỉ chọn được B để hình thành danh từ ghép</string>
+    <string name="key">Key B</string>
+    <string name="vocabularies">Từ vựng: intern (n) thực tập sinh</string>
+    <string name="translate">Tạm dịch: Tiến sỹ Braun chỉ viết thư giới thiệu cho các thực tập sinh đã thành thạo từng nhiệm vụ được giao cho một biên tập viên chỉnh sửa bản sao chưa có nhiều kinh nghiệm.</string>
+    <string name="result_test">Kết quả: 10/30</string>
+    <string name="home">Về trang chủ</string>
+
+</resources>

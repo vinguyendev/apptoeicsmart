@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleSmall"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:visibility="visible"
+        android:layout_marginTop="8dp" />
+
+    <LinearLayout
+        android:id="@+id/viewQuestion"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:visibility="gone"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/viewContentQuestion"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:padding="10dp"
+            android:layout_weight="1"
+            android:visibility="visible"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/content_question"
+                android:text="@string/content_example"
+                style="@style/viewContentQuestion"/>
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:padding="10dp">
+                <RadioButton
+                    android:text="@string/key_a_example"
+                    android:id="@+id/keyA"
+                    style="@style/viewRadioButton"/>
+                <RadioButton
+                    android:text="@string/key_b_example"
+                    android:id="@+id/keyB"
+                    style="@style/viewRadioButton"/>
+                <RadioButton
+                    android:text="@string/key_c_example"
+                    android:id="@+id/keyC"
+                    style="@style/viewRadioButton"/>
+                <RadioButton
+                    android:text="@string/key_d_example"
+                    android:id="@+id/keyD"
+                    style="@style/viewRadioButton"/>
+            </RadioGroup>
+
+            <LinearLayout
+                android:id="@+id/viewExplain"
+                style="@style/containExplain">
+                <TextView
+                    android:id="@+id/key"
+                    style="@style/viewKey"
+                    android:text="@string/key"/>
+                <TextView
+                    android:id="@+id/explain"
+                    style="@style/viewExplain"
+                    android:text="@string/explain"/>
+                <TextView
+                    android:id="@+id/vocabularies"
+                    style="@style/viewExplain"
+                    android:text="@string/vocabularies"/>
+                <TextView
+                    android:id="@+id/translate"
+                    style="@style/viewExplain"
+                    android:text="@string/translate"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/viewResultTest"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:padding="10dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone">
+            <TextView
+                android:id="@+id/resultTest"
+                android:text="@string/result_test"
+                android:layout_width="wrap_content"
+                android:textSize="25sp"
+                android:textColor="@color/colorPrimary"
+                android:textStyle="bold"
+                android:layout_height="wrap_content"/>
+            <Button
+                android:id="@+id/resultHome"
+                style="@style/viewResult"
+                android:layout_margin="30dp"
+                android:text="@string/home"
+            />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:layout_marginBottom="30dp"
+            android:layout_height="wrap_content">
+            <Button
+                android:id="@+id/btnBack"
+                style="@style/viewResult"
+                android:text="@string/back"/>
+            <Button
+                android:id="@+id/btnResult"
+                style="@style/viewResult"
+                android:text="@string/view_result" />
+            <Button
+                android:id="@+id/btnNext"
+                style="@style/viewResult"
+                android:text="@string/next"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
